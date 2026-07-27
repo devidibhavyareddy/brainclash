@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:2000/api",
+  baseURL: import.meta.env.VITE_API_URL || "https://brainclash-lc8g.onrender.com/api",
   withCredentials: false,
 });
 

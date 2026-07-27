@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const socket = io(import.meta.env.VITE_SOCKET_URL || "https://brainclash-lc8g.onrender.com", {
+const socket = io("https://brainclash-1.onrender.com", {
     autoConnect: false,
 });
 

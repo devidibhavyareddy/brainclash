@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* Custom Theme */
+:root{
+  --primary:#6366F1;
+  --secondary:#8B5CF6;
+  --accent:#06B6D4;
+  --success:#22C55E;
+  --warning:#F59E0B;
+  --danger:#EF4444;
+
+  --bg:#F8FAFC;
+  --card:#FFFFFF;
+
+  --text:#1E293B;
+}
+
+html {
+  font-size: 14px;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Make the UI feel about 20% more compact */
+.text-xs { font-size: 0.75rem !important; }
+.text-sm { font-size: 0.875rem !important; }
+.text-base { font-size: 1rem !important; }
+.text-lg { font-size: 1.125rem !important; }
+.text-xl { font-size: 1.25rem !important; }
+.text-2xl { font-size: 1.5rem !important; }
+.text-3xl { font-size: 1.75rem !important; }
+.text-4xl { font-size: 2rem !important; }
+.text-5xl { font-size: 2.25rem !important; }
+.text-6xl { font-size: 2.75rem !important; }
+.text-7xl { font-size: 3.5rem !important; }
+.text-8xl { font-size: 4.25rem !important; }
+.text-9xl { font-size: 5rem !important; }
+
+.w-20, .h-20 { width: 4rem !important; height: 4rem !important; }
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#6366F1;
+  border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+  background:#e2e8f0;
+}

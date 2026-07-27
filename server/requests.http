@@ -1,0 +1,185 @@
+### Register Trainer
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "name":"Sharukh",
+    "email":"Sharukh@gmail.com",
+    "password":"123456",
+    "role":"trainer"
+}
+
+###
+
+### Register Student
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "name":"Bhavya",
+    "email":"bhavya@gmail.com",
+    "password":"123456",
+    "role":"student",
+    "rollNumber":"22A91A0501",
+    "department":"CSE",
+    "year":4
+}
+
+### Login Student
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email":"bhavya@gmail.com",
+    "password":"123456"
+}
+
+###
+
+### Login Trainer
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email":"Sharukh@gmail.com",
+    "password":"123456"
+}
+
+### Create Quiz
+POST http://localhost:2000/api/quizzes/create
+Authorization: 6a64f56252f7c656613441e8
+Content-Type: application/json
+
+{
+    "title":"Placement Aptitude Round 1",
+    "description":"Quantitative Aptitude Test",
+    "category":"Aptitude",
+    "difficulty":"Medium",
+    "duration":30
+}
+
+### Get All Quizzes
+GET http://localhost:5000/api/quizzes
+Authorization: Bearer YOUR_TOKEN
+
+###
+
+### Get Quiz By ID
+GET http://localhost:2000/api/quizzes/QUIZ_ID
+Authorization: Bearer YOUR_TOKEN
+
+###
+
+### Update Quiz
+PUT http://localhost:2000/api/quizzes/QUIZ_ID
+Authorization: Bearer YOUR_TOKEN
+Content-Type: application/json
+
+{
+  "title": "Updated Aptitude Quiz",
+  "duration": 45
+}
+
+###
+
+### Delete Quiz
+DELETE http://localhost:2000/api/quizzes/QUIZ_ID
+Authorization: Bearer YOUR_TOKEN
+
+### Add Question
+POST http://localhost:2000/api/questions/add
+Authorization: Bearer YOUR_TOKEN
+Content-Type: application/json
+
+{
+  "quizId":"YOUR_QUIZ_ID",
+  "questionText":"Which language is used for React?",
+  "options":[
+    "Python",
+    "Java",
+    "JavaScript",
+    "C++"
+  ],
+  "correctAnswer":2,
+  "marks":2,
+  "timeLimit":30
+}
+
+### Start Quiz Session
+POST http://localhost:2000/api/sessions/start
+Authorization: Bearer YOUR_TRAINER_TOKEN
+Content-Type: application/json
+
+{
+    "quizId":"YOUR_QUIZ_ID"
+}
+
+### Student Join Quiz
+
+POST http://localhost:5000/api/sessions/join
+Authorization: Bearer STUDENT_TOKEN
+Content-Type: application/json
+
+{
+    "gamePin":"583921"
+}
+
+### Get Waiting Students
+GET http://localhost:5000/api/sessions/SESSION_ID/waiting
+Authorization: Bearer TRAINER_TOKEN
+
+###a Apporve Student
+PUT http://localhost:5000/api/sessions/approve
+Authorization: Bearer TRAINER_TOKEN
+Content-Type: application/json
+
+{
+"sessionId":"SESSION_ID",
+"studentId":"STUDENT_ID"
+}
+
+###Reject STudent
+PUT http://localhost:5000/api/sessions/reject
+Authorization: Bearer TRAINER_TOKEN
+Content-Type: application/json
+
+{
+"sessionId":"SESSION_ID",
+"studentId":"STUDENT_ID"
+}
+
+### Start Live Quiz
+
+PUT http://localhost:5000/api/sessions/live
+Authorization: Bearer TRAINER_TOKEN
+Content-Type: application/json
+
+{
+    "sessionId":"SESSION_ID"
+}
+
+### Submit Answer
+
+POST http://localhost:5000/api/questions/submit-answer
+Authorization: Bearer STUDENT_TOKEN
+Content-Type: application/json
+
+{
+    "sessionId":"SESSION_ID",
+    "questionId":"QUESTION_ID",
+    "selectedAnswer":2
+}
+
+### End Quiz
+
+PUT http://localhost:5000/api/sessions/end
+Authorization: Bearer TRAINER_TOKEN
+Content-Type: application/json
+
+{
+    "sessionId":"SESSION_ID"
+}
+
+###Student Results
+GET http://localhost:5000/api/sessions/result/SESSION_ID
+Authorization: Bearer STUDENT_TOKEN
